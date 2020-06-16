@@ -1,9 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex'
-    },
     toolbar: theme.mixins.toolbar,
     content: {
         flexGrow: 1,

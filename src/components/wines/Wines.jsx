@@ -1,14 +1,14 @@
 import React from 'react';
-import Navbar from '../layout/header/Navbar';
 import useStyles from './style';
+//import Copyright from '../layout/footer/Copyright'
 
 
 const Wines = () => {
     const classes = useStyles();
     return ( 
-        <div className={classes.root}>
+        <div>
             
-            <Navbar/>
+            <h1>HOla desde la tienda</h1>
           
         </div>
         
