@@ -1,8 +1,14 @@
 import React from 'react';
+import {ThemeProvider} from '@material-ui/core/styles';
+import theme from './config/themeConfig';
+import Wines from './components/wines/Wines'
 
 function App() {
   return (
-    <h1>WinesOn</h1>
+    <ThemeProvider theme={theme}>
+        <Wines/>
+    </ThemeProvider>
+    
   );
 }
 
