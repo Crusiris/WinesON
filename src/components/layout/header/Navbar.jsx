@@ -1,12 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+//Componentes de material UI
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
-
 import SearchIcon from '@material-ui/icons/Search';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import { grey } from '@material-ui/core/colors';
 import useStyles from './style';
 
 const Navbar = () => {
@@ -16,10 +18,11 @@ const classes = useStyles();
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          
-          <Typography className={classes.title} variant="h6" noWrap>
-            WinesON
-          </Typography>
+          <Link to={'/'} className={classes.title} variant="h6" noWrap>
+            <Typography >
+              WinesON
+            </Typography>
+          </Link>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -34,14 +37,11 @@ const classes = useStyles();
             />
           </div>
 
-          <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <AddShoppingCartIcon />
-            </IconButton>
+                <Link to={'/carrito'}> 
+                  <IconButton aria-label="add to shopping cart">
+                      <AddShoppingCartIcon style={{ color: grey[50] }} />
+                    </IconButton>
+                </Link>
 
         </Toolbar>
       </AppBar>

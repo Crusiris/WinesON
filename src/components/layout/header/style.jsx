@@ -3,6 +3,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      color: theme.palette.primary.contrastText,
     },
     menuButton: {
       marginRight: theme.spacing(2),
@@ -13,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.up('sm')]: {
         display: 'block',
       },
+      textDecoration:'none',
+      color: theme.palette.primary.contrastText,
     },
     search: {
       position: 'relative',

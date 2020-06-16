@@ -9,13 +9,14 @@ import CarsShopping from './components/carshopping/CarsShopping';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Navbar/>
-      <Router>
-         <Switch>
-            <Route exact path="/" component={Wines}/>
-            <Route exact path="/carrito" component={CarsShopping}/>
-         </Switch>
-      </Router>
+      
+        <Router>
+        <Navbar/>
+          <Switch>
+              <Route exact path="/" component={Wines}/>
+              <Route exact path="/carrito" component={CarsShopping}/>
+          </Switch>
+        </Router>
     </ThemeProvider>
     
   );
