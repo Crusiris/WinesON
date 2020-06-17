@@ -8,14 +8,16 @@ import WineContext from '../../context/wines/winesContext'
 
 
 const Wines = () => {
-const wineContext= useContext(WineContext);
-const { getWines } = wineContext;
+const wineContext= useContext(WineContext);//Importando context
+const { getWines } = wineContext;///Destructuring del context para obtener states y funciones del context
 
+
+//Cargando la data al iniciar la app
 useEffect(()=>{
     getWines();
      // eslint-disable-next-line react-hooks/exhaustive-deps 
 },[])
-
+    
     const classes = useStyles();
     return ( 
         

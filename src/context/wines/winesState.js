@@ -10,8 +10,18 @@ const WinesState = props => {
     //Declarando un state inicial 
     const initialState = { 
         wines: [],
-        wineSelected:null 
-      }
+        wineSelected:null,
+        carShopping:[],
+        data:{
+            "cartDetails": [
+              {
+                "quantity":null,
+                "unitValue":null,
+                "idVarianteProducto":null
+                }
+            ]
+        }
+    }
 
     //Definiendo useReducer
      const [ state, dispatch ] = useReducer(winesReducer, initialState); 
@@ -44,7 +54,18 @@ const WinesState = props => {
           type:WINES_CURRENT,
           payload: id
       })
- }
+    }
+
+    //Funcion que agrega el producto al carrito de compra
+    const addCar = async () => {
+
+      try {
+
+        
+      } catch (error) {
+        console.log(error);
+      }
+    }
 
     return(
 
@@ -53,7 +74,8 @@ const WinesState = props => {
             wines:state.wines,
             wineSelected:state.wineSelected,
             getWines,
-            wineCurrent
+            wineCurrent,
+            addCar
 
           }}
         >
