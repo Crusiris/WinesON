@@ -14,9 +14,15 @@ const useStyles = makeStyles({
     table: {
       minWidth: 650,
     },
+    media:{
+      width:80,
+      height: 80,
+
+    }
+    
   });
 
-const Cartwines = () => {
+const Cartwines = ({wine}) => {
     const classes = useStyles();
 
   return (
@@ -25,8 +31,12 @@ const Cartwines = () => {
         <TableBody>
          
             <TableRow>
-              <TableCell component="th" scope="row">imagen</TableCell>
-              <TableCell align="right">precio</TableCell>
+              <TableCell component="th" scope="row">
+              <img src={wine.urlImg} 
+               className={classes.media}
+               alt="imagen" />
+              </TableCell>
+              <TableCell align="right"> $ {wine.unitValue}</TableCell>
               
               <TableCell align="right">
                   <Button

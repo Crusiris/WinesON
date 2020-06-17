@@ -26,9 +26,9 @@ const WineCard = ({wine}) => {
     
 
     //Funcion para seleccionar un producto (VINO)
-    const selectedWines = (id, finalPrice) =>{
+    const selectedWines = (id, finalPrice, urlImg) =>{
       let quantity = 1
-      addWinesCart(id, finalPrice, quantity );
+      addWinesCart(id, finalPrice, quantity, urlImg );
     }
 
  
@@ -61,7 +61,7 @@ const WineCard = ({wine}) => {
           <Button variant="contained" color="secondary"
             className={classes.button}
             endIcon={<AddShoppingCartIcon />} 
-            onClick= {()=> selectedWines(id, finalPrice )}
+            onClick= {()=> selectedWines(id, finalPrice, urlImg )}
             >
             Añadir
           </Button>

@@ -40,13 +40,15 @@ const WinesState = props => {
     }
    
     //Funcion que selecciona producto clickeado
-    const addWinesCart = (id, finalPrice, quantity) => {
+    const addWinesCart = (id, finalPrice, quantity, urlImg) => {
       dispatch({
           type:WINES_CURRENT,
           payload:{
             quantity,
+            urlImg,
             unitValue:finalPrice,
             idVarianteProducto:id
+
           }
       })
     }
