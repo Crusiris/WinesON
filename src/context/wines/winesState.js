@@ -3,7 +3,7 @@ import WineContext from './winesContext'; //importando context
 import winesReducer from './winesReducer'; //importando reducer
 import clientAxiosProduct from '../../config/axiosProduct'; //importando instancia de axios
 import clientAxiosMarket from '../../config/axiosMarket'; //importando instancia de axios
-import { GET_WINES, WINES_CURRENT } from '../../types';
+import { GET_WINES, WINES_CURRENT, EDIT_QUANTITY } from '../../types';
 
 //Creando el provider
 const WinesState = props => {
@@ -38,6 +38,17 @@ const WinesState = props => {
         }
           
     }
+
+    //Funcion que edita la cantidad del producto
+      const editQuantity = (cant, id) => {
+        dispatch({
+          type: EDIT_QUANTITY,
+          payload: {
+            cant,
+            id,
+          },
+        });
+      };
    
     //Funcion que selecciona producto clickeado
     const addWinesCart = (id, finalPrice, quantity, urlImg) => {
@@ -47,7 +58,8 @@ const WinesState = props => {
             quantity,
             urlImg,
             unitValue:finalPrice,
-            idVarianteProducto:id
+            idVarianteProducto:id,
+            
 
           }
       })
@@ -77,7 +89,8 @@ const WinesState = props => {
             cartDetails:state.cartDetails,
             getWines,
             addWinesCart,
-            addCarPost
+            addCarPost,
+            editQuantity
 
           }}
         >

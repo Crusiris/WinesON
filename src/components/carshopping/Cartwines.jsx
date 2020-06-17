@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
+import WineContext from '../../context/wines/winesContext';
 
 const useStyles = makeStyles({
     table: {
@@ -24,6 +25,13 @@ const useStyles = makeStyles({
 
 const Cartwines = ({wine}) => {
     const classes = useStyles();
+
+    const wineContext = useContext(WineContext);
+    const { editQuantity } = wineContext;
+
+    const addOtherWine = (cant, id) => {
+      editQuantity(cant, id);
+    };
 
   return (
     <TableContainer component={Paper}>
@@ -44,6 +52,7 @@ const Cartwines = ({wine}) => {
                     color="primary"
                     className={classes.button}
                     startIcon={<AddIcon />}
+                    onClick={() => addOtherWine(1, wine.idVarianteProducto)}
                   > Añadir otra unidad
                   </Button>
               </TableCell>
