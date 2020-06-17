@@ -15,9 +15,14 @@ const useStyles = makeStyles({
 const WineCard = ({wine}) => {
 
  //Destructuring del state
-  const { urlImg, name , variant:{finalPrice} } = wine;
+  const { urlImg, name , variant:{finalPrice}, id } = wine;
 
     const classes = useStyles();
+
+  //Funcion para seleccionar un producto (VINO)
+  const selectedWine = id =>{
+
+  }
 
     return (
 
@@ -46,7 +51,9 @@ const WineCard = ({wine}) => {
           
           <Button variant="contained" color="secondary"
             className={classes.button}
-            endIcon={<AddShoppingCartIcon />} >
+            endIcon={<AddShoppingCartIcon />} 
+            onClick= {()=> selectedWine(id)}
+            >
             Añadir
           </Button>
         </CardActions>
