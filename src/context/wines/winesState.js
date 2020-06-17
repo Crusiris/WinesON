@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import WineContext from './winesContext'; //importando context
 import winesReducer from './winesReducer'; //importando reducer
 import clientAxiosProduct from '../../config/axiosProduct'; //importando instancia de axios
-import { GET_WINES } from '../../types';
+import { GET_WINES, WINES_CURRENT } from '../../types';
 
 //Creando el provider
 const WinesState = props => {
@@ -10,15 +10,14 @@ const WinesState = props => {
     //Declarando un state inicial 
     const initialState = { 
         wines: [],
-        wineSelected:null
-        
-        
+        wineSelected:null 
       }
 
     //Definiendo useReducer
      const [ state, dispatch ] = useReducer(winesReducer, initialState); 
 
     /////////FUNCIONES///////////
+   
     
     //Funcion Obtener vinos
     const getWines = async () =>{
@@ -38,7 +37,14 @@ const WinesState = props => {
         }
           
     }
-    getWines();
+   
+    //Funcion que selecciona producto clickeado
+    const wineCurrent = id => {
+      dispatch({
+          type:WINES_CURRENT,
+          payload: id
+      })
+ }
 
     return(
 
@@ -46,7 +52,8 @@ const WinesState = props => {
           value={{
             wines:state.wines,
             wineSelected:state.wineSelected,
-            getWines
+            getWines,
+            wineCurrent
 
           }}
         >

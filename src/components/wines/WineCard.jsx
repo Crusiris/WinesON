@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import WineContext from '../../context/wines/winesContext'
 //Estilos del componente
 const useStyles = makeStyles({
     root: {
@@ -13,6 +14,8 @@ const useStyles = makeStyles({
   });
   
 const WineCard = ({wine}) => {
+  const wineContext = useContext(WineContext);
+  const { wineCurrent } = wineContext;
 
  //Destructuring del state
   const { urlImg, name , variant:{finalPrice}, id } = wine;
@@ -21,7 +24,7 @@ const WineCard = ({wine}) => {
 
   //Funcion para seleccionar un producto (VINO)
   const selectedWine = id =>{
-
+    wineCurrent(id)
   }
 
     return (
