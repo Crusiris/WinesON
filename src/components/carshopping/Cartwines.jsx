@@ -11,6 +11,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import WineContext from '../../context/wines/winesContext';
 
+//Estilos locales
 const useStyles = makeStyles({
     table: {
       minWidth: 650,
@@ -24,12 +25,13 @@ const useStyles = makeStyles({
   });
 
 const Cartwines = ({wine}) => {
-    const classes = useStyles();
+    const classes = useStyles(); //Obteniendo estilos de la funcion
 
+    //Context
     const wineContext = useContext(WineContext);
     const { editQuantity , deleteWine } = wineContext;
 
-
+    //Funcion que modifica la cantidad del producto
     const addOtherWine = (cant, id) => {
       editQuantity(cant, id);
     };

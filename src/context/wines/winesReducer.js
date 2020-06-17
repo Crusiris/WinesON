@@ -19,18 +19,16 @@ export default (state, action) => {
                     )
                 ),
             };
-        case EDIT_QUANTITY: //Obtener productos o vinos
+        case EDIT_QUANTITY: //Modificando la unidad del producto
             return {
                 ...state,
                 cartDetails: state.cartDetails.map((wine) =>
-                    wine.idVarianteProducto === action.payload.id ? // transform the one with a matching id
-                    {...wine, quantity: wine.quantity + action.payload.cant } : // otherwise return original todo
+                    wine.idVarianteProducto === action.payload.id ? {...wine, quantity: wine.quantity + action.payload.cant } :
                     wine
                 ),
             };
 
-        case DELETE_WINE: //Obtener productos o vinos
-            console.log(action.payload);
+        case DELETE_WINE: //Eliminar producto
             return {
                 ...state, //Copia del state
                 cartDetails: state.cartDetails.filter(elemt => elemt.idVarianteProducto !== action.payload)

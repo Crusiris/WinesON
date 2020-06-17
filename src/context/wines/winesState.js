@@ -50,7 +50,7 @@ const WinesState = props => {
         });
       };
    
-    //Funcion que selecciona producto clickeado
+    //Funcion que agrega el producto al carrito
     const addWinesCart = (id, finalPrice, quantity, urlImg) => {
       dispatch({
           type:WINES_CURRENT,
@@ -65,8 +65,6 @@ const WinesState = props => {
 
     //Funcion que elimina el elemento del state
     const deleteWine = id => {
-      console.log("desde el state");
-      console.log(id);
       dispatch({
         type:DELETE_WINE,
         payload:id
@@ -75,6 +73,7 @@ const WinesState = props => {
 
     //Funcion que agrega la compra a la BD
     const addCarPost = async ( cartDetails ) => {
+      console.log(cartDetails);
 
       try {
          //Peticion al API
@@ -82,7 +81,7 @@ const WinesState = props => {
          console.log(res);
         
       } catch (error) {
-        console.log(error.response);
+        
 
       }
     }

@@ -12,7 +12,7 @@ const ListCartWines = () => {
     const classes =useStyles();
 
     const winesContext =useContext(WineContext);
-    const { cartDetails } = winesContext;
+    const { cartDetails, addCarPost } = winesContext;
 
     return (  
 
@@ -39,6 +39,7 @@ const ListCartWines = () => {
                         variant="contained"
                         color="primary"
                         className={classes.button}
+                        onClick={()=> addCarPost(cartDetails)}
                         > Enviar Pedido </Button>
                 </Grid>
         </Fragment>
