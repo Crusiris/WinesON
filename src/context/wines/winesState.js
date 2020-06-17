@@ -59,9 +59,7 @@ const WinesState = props => {
             urlImg,
             unitValue:finalPrice,
             idVarianteProducto:id,
-            
-
-          }
+        }
       })
     }
 

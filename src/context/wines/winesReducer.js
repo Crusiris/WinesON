@@ -11,8 +11,14 @@ export default (state, action) => {
             //[...state.cartDetails, action.payload]
             return {
                 ...state, //Copia del state
-                cartDetails: [...state.cartDetails, action.payload] //asignando el producto seleccionado al state         
-            }
+                cartDetails: [].concat(
+                    action.payload,
+                    state.cartDetails.filter(
+                        (wine) =>
+                        wine.idVarianteProducto !== action.payload.idVarianteProducto
+                    )
+                ),
+            };
         case EDIT_QUANTITY: //Obtener productos o vinos
             console.log(action.payload.id);
             return {
