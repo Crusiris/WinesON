@@ -1,14 +1,21 @@
 import React from 'react';
+import Navbar from '../layout/header/Navbar';
 import useStyles from './style';
+import ListWine from './ListWines'
 //import Copyright from '../layout/footer/Copyright'
 
 
 const Wines = () => {
     const classes = useStyles();
     return ( 
-        <div>
+        
+        <div className={classes.root}>
+            <Navbar/>
+            <div className={classes.content}>
+                <div className={classes.toolbar}></div>
+                <ListWine/>
+            </div>
             
-            <h1>HOla desde la tienda</h1>
           
         </div>
         

@@ -15,10 +15,10 @@ const Navbar = () => {
 const classes = useStyles();
     
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
+    
+      <AppBar position="fixed">
         <Toolbar>
-          <Link to={'/'} className={classes.title} variant="h6" noWrap>
+          <Link to={'/'} className={classes.title} variant="h6">
             <Typography >
               WinesON
             </Typography>
@@ -45,7 +45,7 @@ const classes = useStyles();
 
         </Toolbar>
       </AppBar>
-    </div>
+     
   );
 }
  

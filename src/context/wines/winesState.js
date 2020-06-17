@@ -1,7 +1,8 @@
 import React, { useReducer } from 'react';
 import WineContext from './winesContext'; //importando context
 import winesReducer from './winesReducer'; //importando reducer
-import clientAxiosProduct from '../../config/axiosProduct'; 
+import clientAxiosProduct from '../../config/axiosProduct'; //importando instancia de axios
+import { GET_WINES } from '../../types';
 
 //Creando el provider
 const WinesState = props => {
@@ -18,13 +19,19 @@ const WinesState = props => {
      const [ state, dispatch ] = useReducer(winesReducer, initialState); 
 
     /////////FUNCIONES///////////
-      //Obtener Vinos
+    
+    //Funcion Obtener vinos
     const getWines = async () =>{
     
         try {
-            //Peticion a la base de batos
-            const res = await clientAxiosProduct.get('/v2/markets/:market_id/collection/:collection_id/market_info.json');
-            await console.log(res);
+            //Peticion al API
+            const res = await clientAxiosProduct.get('/v2/markets/1/collection/2/market_info.json')
+            //console.log(res.data.data);
+
+            dispatch({
+              type: GET_WINES,
+              payload:res.data.data
+          })
             
         } catch (error) {
             console.log(error.response);

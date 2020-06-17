@@ -5,6 +5,7 @@ const useStyles = makeStyles((theme) => ({
       flexGrow: 1,
       color: theme.palette.primary.contrastText,
     },
+    offset:theme.mixins.toolbar,
     menuButton: {
       marginRight: theme.spacing(2),
     },
