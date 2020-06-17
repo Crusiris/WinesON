@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardActionArea, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
-
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 //Estilos del componente
 const useStyles = makeStyles({
     root: {
@@ -38,12 +38,16 @@ const WineCard = ({wine}) => {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
+
+        <CardActions  align="center">
           <Button size="small" color="primary">
-            {finalPrice}
+            ${finalPrice}
           </Button>
-          <Button size="small" color="primary">
-            Learn More
+          
+          <Button variant="contained" color="secondary"
+            className={classes.button}
+            endIcon={<AddShoppingCartIcon />} >
+            Añadir
           </Button>
         </CardActions>
       </Card>
