@@ -10,17 +10,7 @@ const WinesState = props => {
     //Declarando un state inicial 
     const initialState = { 
         wines: [],
-        wineSelected:null,
-        carShopping:[],
-        data:{
-            "cartDetails": [
-              {
-                "quantity":null,
-                "unitValue":null,
-                "idVarianteProducto":null
-              }
-            ]
-        }
+        cartDetails:[]
     }
 
     //Definiendo useReducer
@@ -49,10 +39,13 @@ const WinesState = props => {
     }
    
     //Funcion que selecciona producto clickeado
-    const wineCurrent = id => {
+    const winesCurrent = (id, finalPrice) => {
       dispatch({
           type:WINES_CURRENT,
-          payload: id
+          payload:{
+            unitValue:finalPrice,
+            idVarianteProducto:id
+          }
       })
     }
 
@@ -74,7 +67,7 @@ const WinesState = props => {
             wines:state.wines,
             wineSelected:state.wineSelected,
             getWines,
-            wineCurrent,
+            winesCurrent,
             addCar
 
           }}

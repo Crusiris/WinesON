@@ -15,16 +15,16 @@ const useStyles = makeStyles({
   
 const WineCard = ({wine}) => {
   const wineContext = useContext(WineContext);
-  const { wineCurrent } = wineContext;
+  const { winesCurrent } = wineContext;
 
  //Destructuring del state
-  const { urlImg, name , variant:{finalPrice}, id } = wine;
+  const { urlImg, name , variant:{finalPrice, id} } = wine;
 
     const classes = useStyles();
 
   //Funcion para seleccionar un producto (VINO)
-  const selectedWine = id =>{
-    wineCurrent(id)
+  const selectedWines = (id, finalPrice ) =>{
+    winesCurrent(id, finalPrice );
   }
 
     return (
@@ -55,7 +55,7 @@ const WineCard = ({wine}) => {
           <Button variant="contained" color="secondary"
             className={classes.button}
             endIcon={<AddShoppingCartIcon />} 
-            onClick= {()=> selectedWine(id)}
+            onClick= {()=> selectedWines(id, finalPrice )}
             >
             Añadir
           </Button>

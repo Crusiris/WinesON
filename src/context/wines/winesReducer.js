@@ -10,8 +10,9 @@ export default (state, action) => {
         case WINES_CURRENT: //vino o producto seleccionado
             return {
                 ...state, //Copia del state
-                wineSelected: state.wines.filter(wine => wine.id === action.payload) //asignando el producto seleccionado al state         
+                cartDetails: [...state.cartDetails, action.payload] //asignando el producto seleccionado al state         
             }
+
         default:
             return state;
     }
