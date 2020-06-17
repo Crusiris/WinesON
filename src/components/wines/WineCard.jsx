@@ -14,18 +14,24 @@ const useStyles = makeStyles({
   });
   
 const WineCard = ({wine}) => {
+  const classes = useStyles();
+  
+  //Context
   const wineContext = useContext(WineContext);
-  const { winesCurrent } = wineContext;
+  const { addWinesCart } = wineContext;
 
  //Destructuring del state
   const { urlImg, name , variant:{finalPrice, id} } = wine;
 
-    const classes = useStyles();
+    
 
-  //Funcion para seleccionar un producto (VINO)
-  const selectedWines = (id, finalPrice ) =>{
-    winesCurrent(id, finalPrice );
-  }
+    //Funcion para seleccionar un producto (VINO)
+    const selectedWines = (id, finalPrice) =>{
+      let quantity = 1
+      addWinesCart(id, finalPrice, quantity );
+    }
+
+ 
 
     return (
 

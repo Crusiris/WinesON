@@ -5,13 +5,15 @@ import theme from './config/themeConfig';
 import Wines from './components/wines/Wines';
 import CarsShopping from './components/carshopping/CarsShopping';
 import WinesState from './context/wines/winesState';
+import NavBar from './components/layout/header/Navbar'
 
 function App() {
-  console.log(process.env.REACT_APP_URL_PRODUCT)
   return (
     <ThemeProvider theme={theme}>
+      
       <WinesState>
           <Router>
+          <NavBar/>
             <Switch>
                 <Route exact path="/" component={Wines}/>
                 <Route exact path="/carrito" component={CarsShopping}/>

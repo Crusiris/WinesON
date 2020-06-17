@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import WineContext from './winesContext'; //importando context
 import winesReducer from './winesReducer'; //importando reducer
 import clientAxiosProduct from '../../config/axiosProduct'; //importando instancia de axios
+import clientAxiosMarket from '../../config/axiosMarket'; //importando instancia de axios
 import { GET_WINES, WINES_CURRENT } from '../../types';
 
 //Creando el provider
@@ -39,36 +40,42 @@ const WinesState = props => {
     }
    
     //Funcion que selecciona producto clickeado
-    const winesCurrent = (id, finalPrice) => {
+    const addWinesCart = (id, finalPrice, quantity) => {
       dispatch({
           type:WINES_CURRENT,
           payload:{
+            quantity,
             unitValue:finalPrice,
             idVarianteProducto:id
           }
       })
     }
 
+
     //Funcion que agrega el producto al carrito de compra
-    const addCar = async () => {
+    const addCarPost = async ( cartDetails ) => {
 
       try {
-
+         //Peticion al API
+         const res = await clientAxiosMarket.post('/v1/cart.json', {cartDetails});
+         console.log(res);
         
       } catch (error) {
-        console.log(error);
+        console.log(error.response);
+
       }
     }
+    
 
     return(
 
         <WineContext.Provider
           value={{
             wines:state.wines,
-            wineSelected:state.wineSelected,
+            cartDetails:state.cartDetails,
             getWines,
-            winesCurrent,
-            addCar
+            addWinesCart,
+            addCarPost
 
           }}
         >

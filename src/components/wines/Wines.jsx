@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-import Navbar from '../layout/header/Navbar';
 import useStyles from './style';
 import ListWine from './ListWines';
 import WineContext from '../../context/wines/winesContext'
@@ -21,15 +20,10 @@ useEffect(()=>{
     const classes = useStyles();
     return ( 
         
-        <div className={classes.root}>
-            <Navbar/>
             <div className={classes.content}>
                 <div className={classes.toolbar}></div>
                 <ListWine/>
             </div>
-            
-          
-        </div>
         
      );
 }
