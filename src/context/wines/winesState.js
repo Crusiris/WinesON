@@ -18,7 +18,7 @@ const WinesState = props => {
                 "quantity":null,
                 "unitValue":null,
                 "idVarianteProducto":null
-                }
+              }
             ]
         }
     }
