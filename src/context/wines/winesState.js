@@ -3,7 +3,7 @@ import WineContext from './winesContext'; //importando context
 import winesReducer from './winesReducer'; //importando reducer
 import clientAxiosProduct from '../../config/axiosProduct'; //importando instancia de axios
 import clientAxiosMarket from '../../config/axiosMarket'; //importando instancia de axios
-import { GET_WINES, WINES_CURRENT, EDIT_QUANTITY } from '../../types';
+import { GET_WINES, WINES_CURRENT, EDIT_QUANTITY, DELETE_WINE} from '../../types';
 
 //Creando el provider
 const WinesState = props => {
@@ -63,8 +63,17 @@ const WinesState = props => {
       })
     }
 
+    //Funcion que elimina el elemento del state
+    const deleteWine = id => {
+      console.log("desde el state");
+      console.log(id);
+      dispatch({
+        type:DELETE_WINE,
+        payload:id
+    })
+    }
 
-    //Funcion que agrega el producto al carrito de compra
+    //Funcion que agrega la compra a la BD
     const addCarPost = async ( cartDetails ) => {
 
       try {
@@ -88,7 +97,8 @@ const WinesState = props => {
             getWines,
             addWinesCart,
             addCarPost,
-            editQuantity
+            editQuantity,
+            deleteWine
 
           }}
         >

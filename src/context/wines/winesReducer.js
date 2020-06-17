@@ -1,4 +1,4 @@
-import { GET_WINES, WINES_CURRENT, EDIT_QUANTITY } from '../../types';
+import { GET_WINES, WINES_CURRENT, EDIT_QUANTITY, DELETE_WINE } from '../../types';
 
 export default (state, action) => {
     switch (action.type) {
@@ -20,7 +20,6 @@ export default (state, action) => {
                 ),
             };
         case EDIT_QUANTITY: //Obtener productos o vinos
-            console.log(action.payload.id);
             return {
                 ...state,
                 cartDetails: state.cartDetails.map((wine) =>
@@ -29,6 +28,14 @@ export default (state, action) => {
                     wine
                 ),
             };
+
+        case DELETE_WINE: //Obtener productos o vinos
+            console.log(action.payload);
+            return {
+                ...state, //Copia del state
+                cartDetails: state.cartDetails.filter(elemt => elemt.idVarianteProducto !== action.payload)
+
+            }
 
         default:
             return state;

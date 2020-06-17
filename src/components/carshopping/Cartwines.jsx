@@ -27,11 +27,19 @@ const Cartwines = ({wine}) => {
     const classes = useStyles();
 
     const wineContext = useContext(WineContext);
-    const { editQuantity } = wineContext;
+    const { editQuantity , deleteWine } = wineContext;
+
 
     const addOtherWine = (cant, id) => {
       editQuantity(cant, id);
     };
+
+    //Seleccionando el elemeto para eliminarlo
+    const  selectWine = id =>{
+      console.log(id);
+      //Funcion eliminar
+      deleteWine(id);
+    }
 
   return (
     <TableContainer component={Paper}>
@@ -63,6 +71,7 @@ const Cartwines = ({wine}) => {
                   color="secondary"
                   className={classes.button}
                   startIcon={<DeleteIcon />}
+                  onClick={() => selectWine(wine.idVarianteProducto)}
                 > Delete
               </Button>
 
