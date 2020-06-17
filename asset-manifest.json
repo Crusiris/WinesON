@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Crusiris/WinesON.git/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/Crusiris/WinesON.git/static/js/main.52a9e9a8.chunk.js",
+    "main.js.map": "/Crusiris/WinesON.git/static/js/main.52a9e9a8.chunk.js.map",
+    "runtime-main.js": "/Crusiris/WinesON.git/static/js/runtime-main.1b3720a6.js",
+    "runtime-main.js.map": "/Crusiris/WinesON.git/static/js/runtime-main.1b3720a6.js.map",
+    "static/js/2.dce84d85.chunk.js": "/Crusiris/WinesON.git/static/js/2.dce84d85.chunk.js",
+    "static/js/2.dce84d85.chunk.js.map": "/Crusiris/WinesON.git/static/js/2.dce84d85.chunk.js.map",
+    "index.html": "/Crusiris/WinesON.git/index.html",
+    "precache-manifest.70745cc32695238edf17e067a0a38c63.js": "/Crusiris/WinesON.git/precache-manifest.70745cc32695238edf17e067a0a38c63.js",
+    "service-worker.js": "/Crusiris/WinesON.git/service-worker.js",
+    "static/css/main.5ecd60fb.chunk.css.map": "/Crusiris/WinesON.git/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.dce84d85.chunk.js.LICENSE.txt": "/Crusiris/WinesON.git/static/js/2.dce84d85.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1b3720a6.js",
+    "static/js/2.dce84d85.chunk.js",
+    "static/css/main.5ecd60fb.chunk.css",
+    "static/js/main.52a9e9a8.chunk.js"
+  ]
+}
