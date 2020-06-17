@@ -1,4 +1,4 @@
-import { GET_WINES, WINES_CURRENT, EDIT_QUANTITY, DELETE_WINE } from '../../types';
+import { GET_WINES, WINES_CURRENT, EDIT_QUANTITY, DELETE_WINE, RES_POST } from '../../types';
 
 export default (state, action) => {
     switch (action.type) {
@@ -34,7 +34,11 @@ export default (state, action) => {
                 cartDetails: state.cartDetails.filter(elemt => elemt.idVarianteProducto !== action.payload)
 
             }
-
+        case RES_POST:
+            return {
+                ...state, //Copia del state
+                finalticket: action.payload
+            }
         default:
             return state;
     }

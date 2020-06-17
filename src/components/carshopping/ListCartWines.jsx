@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Cartwines from './Cartwines';
 import Grid from '@material-ui/core/Grid';
 import useStyles from '../wines/style';
@@ -17,31 +18,40 @@ const ListCartWines = () => {
     return (  
 
         <Fragment>
-                <Grid container spacing={4} justify="center" className={classes.gridContainer} >
-                    <Typography className={classes.toolbar} variant="h5" >Carrito de Compras</Typography>
+               
+                    <Grid container spacing={4} justify="center" className={classes.gridContainer} >
+                     
+                       <Typography className={classes.toolbar} variant="h5" >Carrito de Compras</Typography>
 
-                    {cartDetails.map(wine =>(
-                        <Grid item xs={12} sm={12} md={12} key={wine.id}>
-                            <Cartwines
-                            wine={wine}
-                            />
-                        </Grid>
-                   ))}
+                            {cartDetails.map(wine =>(
+                                <Grid item xs={12} sm={12} md={12} key={wine.id}>
+                                    <Cartwines
+                                    wine={wine}
+                                    />
+                                </Grid>
+                        ))}
                     
+                      <div className={classes.toolbar}></div> 
+                    
+                    </Grid>
+
                     <div className={classes.toolbar}></div>
+                    <Grid container justify="center" className={classes.gridContainer} >
+                        <Link to={'/enviadoexitosamente'}>
+                            <Button 
+                                variant="contained"
+                                color="primary"
+                                className={classes.button}
+                                onClick={()=> addCarPost(cartDetails)}
+                                > Enviar Pedido </Button>
+                        </Link>
+                    </Grid>
+                   
                     
-                </Grid>
-
-                <div className={classes.toolbar}></div>
-                <Grid container justify="center" className={classes.gridContainer} >
-                
-                    <Button 
-                        variant="contained"
-                        color="primary"
-                        className={classes.button}
-                        onClick={()=> addCarPost(cartDetails)}
-                        > Enviar Pedido </Button>
-                </Grid>
+                        {/* <Grid container spacing={4} justify="center" className={classes.gridContainer} >
+                            <Typography className={classes.toolbar} variant="h5" >No hay productos seleccionados</Typography>
+                            </Grid> */}
+                  
         </Fragment>
         
     );

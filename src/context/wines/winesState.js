@@ -3,7 +3,7 @@ import WineContext from './winesContext'; //importando context
 import winesReducer from './winesReducer'; //importando reducer
 import clientAxiosProduct from '../../config/axiosProduct'; //importando instancia de axios
 import clientAxiosMarket from '../../config/axiosMarket'; //importando instancia de axios
-import { GET_WINES, WINES_CURRENT, EDIT_QUANTITY, DELETE_WINE} from '../../types';
+import { GET_WINES, WINES_CURRENT, EDIT_QUANTITY, DELETE_WINE, RES_POST} from '../../types';
 
 //Creando el provider
 const WinesState = props => {
@@ -11,7 +11,8 @@ const WinesState = props => {
     //Declarando un state inicial 
     const initialState = { 
         wines: [],
-        cartDetails:[]
+        cartDetails:[],
+        finalticket:[]
     }
 
     //Definiendo useReducer
@@ -73,15 +74,17 @@ const WinesState = props => {
 
     //Funcion que agrega la compra a la BD
     const addCarPost = async ( cartDetails ) => {
-      console.log(cartDetails);
-
       try {
          //Peticion al API
          const res = await clientAxiosMarket.post('/v1/cart.json', {cartDetails});
-         console.log(res);
+         console.log(res.data.data);
+         dispatch({
+          type: RES_POST,
+          payload:res.data.data
+      })
         
       } catch (error) {
-        
+        console.log(error);
 
       }
     }

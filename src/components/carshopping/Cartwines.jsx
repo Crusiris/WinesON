@@ -38,7 +38,6 @@ const Cartwines = ({wine}) => {
 
     //Seleccionando el elemeto para eliminarlo
     const  selectWine = id =>{
-      console.log(id);
       //Funcion eliminar
       deleteWine(id);
     }

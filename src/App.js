@@ -5,7 +5,8 @@ import theme from './config/themeConfig';
 import Wines from './components/wines/Wines';
 import CarsShopping from './components/carshopping/CarsShopping';
 import WinesState from './context/wines/winesState';
-import NavBar from './components/layout/header/Navbar'
+import NavBar from './components/layout/header/Navbar';
+import SuccessfulDelivery from './components/layout/successfuldelivery/SuccessfulDelivery';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Switch>
                 <Route exact path="/" component={Wines}/>
                 <Route exact path="/carrito" component={CarsShopping}/>
+                <Route exact path="/enviadoexitosamente" component={SuccessfulDelivery}/>
             </Switch>
           </Router>
         </WinesState>
