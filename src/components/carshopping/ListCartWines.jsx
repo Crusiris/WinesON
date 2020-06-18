@@ -15,14 +15,15 @@ const ListCartWines = () => {
     //State y funcione para mostrar y ocultar modal
     const [abrir, setOpen] = React.useState(false);
 
-
-        const handleClose = () => {
-            setOpen(false);
-        };
-
+        //Funcion para abrir el modal
         const handleOpen = () => {
             setOpen(true);
         };
+        //Funcion para cerrar el modal
+        const handleClose = () => {
+            setOpen(false);
+        };
+        
         
         
    
@@ -32,10 +33,8 @@ const ListCartWines = () => {
 
     //Funcion para enviar la orden
     const sendOrder = cartDetails => {
-
         handleOpen();
-        //addCarPost(cartDetails);
-        
+        addCarPost(cartDetails);  
     }
 
     return (  
