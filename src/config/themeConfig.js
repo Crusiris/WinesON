@@ -11,10 +11,9 @@ const theme = createMuiTheme({
         },
         secondary: {
             main: red[500]
-        }
-
-
-    }
+        },
+    },
+    
 });
 
 export default theme;

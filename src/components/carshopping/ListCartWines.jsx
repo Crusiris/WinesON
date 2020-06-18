@@ -1,19 +1,42 @@
 import React, { Fragment, useContext } from 'react';
-import { Link } from 'react-router-dom';
 import Cartwines from './Cartwines';
 import Grid from '@material-ui/core/Grid';
 import useStyles from '../wines/style';
 import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import WineContext from '../../context/wines/winesContext';
+//modal
+import ModalComponent from '../layout/modal/modal'
 
 
 
 const ListCartWines = () => {
     const classes =useStyles();
+    //State y funcione para mostrar y ocultar modal
+    const [abrir, setOpen] = React.useState(false);
 
+
+        const handleClose = () => {
+            setOpen(false);
+        };
+
+        const handleOpen = () => {
+            setOpen(true);
+        };
+        
+        
+   
+        //CONTEXT
     const winesContext =useContext(WineContext);
     const { cartDetails, addCarPost } = winesContext;
+
+    //Funcion para enviar la orden
+    const sendOrder = cartDetails => {
+
+        handleOpen();
+        //addCarPost(cartDetails);
+        
+    }
 
     return (  
 
@@ -37,14 +60,18 @@ const ListCartWines = () => {
 
                     <div className={classes.toolbar}></div>
                     <Grid container justify="center" className={classes.gridContainer} >
-                        <Link to={'/enviadoexitosamente'}>
+                        
                             <Button 
                                 variant="contained"
                                 color="primary"
                                 className={classes.button}
-                                onClick={()=> addCarPost(cartDetails)}
+                                open={abrir}
+                                onClose={handleClose}
+                                onClick={()=> sendOrder(cartDetails)}
+                                
                                 > Enviar Pedido </Button>
-                        </Link>
+                        {abrir ? <ModalComponent open={abrir} onClose={handleClose} /> :null}
+                       
                     </Grid>
                    
                     
