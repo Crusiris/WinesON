@@ -77,7 +77,6 @@ const WinesState = props => {
       try {
          //Peticion al API
          const res = await clientAxiosMarket.post('/v1/cart.json', {cartDetails});
-         console.log(res.data.data);
          dispatch({
           type: RES_POST,
           payload:res.data.data

@@ -1,26 +1,34 @@
 import React, { useContext } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import WineContext from '../../context/wines/winesContext';
 
 
+
 //Estilos locales
 const useStyles = makeStyles({
-    table: {
-      minWidth: 650,
-    },
     media:{
-      width:80,
-      height: 80,
-
+      width:60,
+      height: 60,
+    },
+    containerimg:{
+      width:60,
+      height: 60,
+    },
+    containerlist:{
+      display:'flex',
+      border: '1px solid #9e9e9e',
+      maxWidth:800,
+      flexDirection:'row',
+      justifyContent:'space-between'
+    },
+    containerIconos:{
+      justifyContent:'space-between',
+      alignItems:'center',
+      alignContent:'center',
+      width:100,
     }
     
   });
@@ -44,47 +52,28 @@ const Cartwines = ({wine}) => {
     }
 
   return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        <TableBody>
-         
-            <TableRow>
-              <TableCell component="th" scope="row">
-              <img src={wine.urlImg} 
-               className={classes.media}
-               alt="imagen" />
-              </TableCell>
-              <TableCell align="right"> $ {wine.unitValue}</TableCell>
-              
-              <TableCell align="right">
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    className={classes.button}
-                    startIcon={<AddIcon />}
-                    onClick={() => addOtherWine(1, wine.idVarianteProducto)}
-                  > Añadir otra unidad
-                  </Button>
-              </TableCell>
+    <div className={classes.containerlist}>
 
-              <TableCell align="right">
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  className={classes.button}
-                  startIcon={<DeleteIcon />}
-                  onClick={() => selectWine(wine.idVarianteProducto)}
-                > Delete
-              </Button>
+        <div className={classes.containerimg}>
+           <img src={wine.urlImg}  className={classes.media} alt="imagen" />
+        </div>
 
-              
-              </TableCell>
-             
-            </TableRow>
-          
-        </TableBody>
-      </Table>
-    </TableContainer>
+        <div className={classes.containerIconos} >
+          <label htmlFor="icon-button-file">
+            <IconButton color="primary" aria-label="upload picture" component="span"  onClick={() => addOtherWine(1, wine.idVarianteProducto)}>
+              <AddIcon />
+            </IconButton>
+          </label>
+
+          <label htmlFor="icon-button-file">
+            <IconButton color="secondary" aria-label="upload picture" component="span"   onClick={() => selectWine(wine.idVarianteProducto)}>
+                <DeleteIcon />
+            </IconButton>
+          </label>
+        </div>
+        
+       
+    </div>
   );
 }
  

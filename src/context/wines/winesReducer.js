@@ -37,7 +37,8 @@ export default (state, action) => {
         case RES_POST:
             return {
                 ...state, //Copia del state
-                finalticket: action.payload
+                finalticket: action.payload,
+                cartDetails:[]
             }
         default:
             return state;
